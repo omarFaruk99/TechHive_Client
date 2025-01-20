@@ -35,8 +35,7 @@ const Navbar = () => {
   const navbarLink = (
     <>
       <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/allArtifacts"}>All Artifacts</NavLink>
-      <NavLink to={"/addArtifacts"}>Add Artifacts</NavLink>
+      <NavLink to={"/products"}>Products</NavLink>
       <NavLink to={"/contact"}>Contact Us</NavLink>
       <NavLink to={"/faq"}>FAQ</NavLink>
       <NavLink to={"/testimonials"}>Testimonials</NavLink>
@@ -44,7 +43,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar  bg-gray-800 text-yellow-400 shadow-md">
+    <div className="navbar  bg-gray-800 text-white shadow-md">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,14 +64,12 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-gray-700  text-yellow-400 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-gray-700  text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <div className="flex flex-col gap-2">{navbarLink}</div>
           </ul>
         </div>
-        <a className="btn btn-ghost text-yellow-400 text-2xl font-bold">
-          Antiquify
-        </a>
+        <a className="btn btn-ghost text-accent text-2xl font-bold">TechHive</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -108,13 +105,13 @@ const Navbar = () => {
           <div className="flex gap-2">
             <NavLink
               to={"/login"}
-              className="btn text-black bg-gradient-to-l from-gray-400 border-none via-orange-400 to-yellow-400 hover:opacity-90 text-sm py-1 px-2 sm:text-base sm:py-2 sm:px-5"
+              className="btn text-black bg-gradient-to-l bg-accent border-none hover:bg-accentDark text-sm py-1 px-2 sm:text-base sm:py-2 sm:px-5"
             >
               Login
             </NavLink>
             <NavLink
               to={"/register"}
-              className="btn text-black  bg-gradient-to-r  from-yellow-400 via-orange-400 to-gray-400 hover:opacity-90 border-none text-sm py-1 px-2 sm:text-base sm:py-2 sm:px-5"
+              className="btn text-black  bg-gradient-to-r  bg-accent hover:bg-accentDark border-none text-sm py-1 px-2 sm:text-base sm:py-2 sm:px-5"
             >
               Register
             </NavLink>
