@@ -1,7 +1,9 @@
+import HomeCarousel from "./HomeCarousel";
+
 const Home = () => {
   return (
-    <div>
-      <h2>THis is Home page</h2>
+    <div className="bg-base-100">
+      <HomeCarousel></HomeCarousel>
     </div>
   );
 };
