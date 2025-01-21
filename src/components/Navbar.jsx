@@ -105,13 +105,13 @@ const Navbar = () => {
           <div className="flex gap-2">
             <NavLink
               to={"/login"}
-              className="btn text-black bg-gradient-to-l bg-accent border-none hover:bg-accentDark text-sm py-1 px-2 sm:text-base sm:py-2 sm:px-5"
+              className="btn btn-sm auth-btn text-black bg-gradient-to-l bg-accent border-none hover:bg-accentDark text-sm"
             >
               Login
             </NavLink>
             <NavLink
               to={"/register"}
-              className="btn text-black  bg-gradient-to-r  bg-accent hover:bg-accentDark border-none text-sm py-1 px-2 sm:text-base sm:py-2 sm:px-5"
+              className="btn btn-sm auth-btn text-black  bg-gradient-to-r  bg-accent hover:bg-accentDark border-none text-sm"
             >
               Register
             </NavLink>

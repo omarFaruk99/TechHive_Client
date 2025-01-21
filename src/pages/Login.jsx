@@ -165,7 +165,7 @@ const Login = () => {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className="btn btn-primary"
+                className="btn bg-accent text-black hover:bg-accentDark"
                 disabled={loading || disableLogin}
               >
                 {loading ? "Logging in..." : "Login"}
@@ -177,7 +177,7 @@ const Login = () => {
           {/* Sign up link */}
           <p className="text-center pb-2">
             New here?
-            <Link to="/signup" className="text-primary ml-1">
+            <Link to="/signup" className=" ml-1">
               Create an account
             </Link>
           </p>

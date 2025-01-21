@@ -2,3 +2,7 @@
 .active {
   color: #60A5FA;
 }
+
+.auth-btn.active{
+  color: black !important;
+}
