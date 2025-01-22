@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import useProduct from "../hooks/useProduct";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import useAxiosPublic from "../hooks/useAxiosPublic";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Products = () => {
   const { user } = useAuth();
   const [products, refetch] = useProduct();
-  const axiosPublic = useAxiosPublic();
+
+  const axiosSecure = useAxiosSecure();
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const navigate = useNavigate();
 
@@ -26,12 +26,10 @@ const Products = () => {
       return;
     }
 
-    // Implement the upvote logic here
+    // Implement the upvote logic
     // Ensure the user can only upvote once and the button is disabled for the product owner
     try {
-      const response = await axiosPublic.post(`/products/${productId}/upvote`, {
-        email: user?.email,
-      });
+      const response = await axiosSecure.post(`/products/${productId}/upvote`);
       if (response.status === 200) {
         refetch(); // Refetch products to update the upvote count
       }
