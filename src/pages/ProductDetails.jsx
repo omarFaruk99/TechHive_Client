@@ -80,7 +80,8 @@ const ProductDetails = () => {
     try {
       await axiosSecure.post(`/products/${id}/reviews`, reviewData);
       toast.success("Review posted successfully");
-      setReviews((prevReviews) => [...prevReviews, reviewData]);
+        setReviews((prevReviews) => [...prevReviews, reviewData]);
+    //   setReviews(reviewData);
     } catch (error) {
       toast.error("Failed to post review", error);
     }
