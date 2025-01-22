@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import { FaChevronUp } from "react-icons/fa";
 
 const FeaturedProducts = ({ products, handleUpvote, user }) => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="mt-7">
       <h2 className="text-2xl font-bold mb-4">Featured Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div
             key={product._id}
-            className="bg-white shadow-md rounded-lg overflow-hidden"
+            className=" shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
           >
             <img
               src={product.productImage}
@@ -20,7 +21,7 @@ const FeaturedProducts = ({ products, handleUpvote, user }) => {
             <div className="p-4">
               <h3
                 onClick={() => navigate(`/product/${product._id}`)}
-                className="text-lg font-semibold cursor-pointer hover:underline"
+                className="text-lg font-semibold cursor-pointer hover:text-accent transition-colors"
               >
                 {product.productName}
               </h3>
@@ -37,13 +38,15 @@ const FeaturedProducts = ({ products, handleUpvote, user }) => {
               <button
                 onClick={() => handleUpvote(product._id)}
                 disabled={user?.email === product.owner.email}
-                className={`mt-4 w-full py-2 px-4 rounded ${
+                className={`mt-4  rounded btn-xs ${
                   user?.email === product.owner.email
                     ? "bg-gray-300 cursor-not-allowed"
-                    : "bg-blue-500 text-white"
+                    : "bg-accent text-white"
                 }`}
               >
-                <span className="mr-2">👍</span> {product.upvotes}
+                <span className="flex justify-center items-center gap-1 ">
+                  <FaChevronUp size={20} /> {product.upvotes}
+                </span>
               </button>
             </div>
           </div>
