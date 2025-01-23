@@ -138,11 +138,12 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="absolute right-0 mt-2 bg-gray-700  text-yellow-400 rounded shadow-lg z-10">
                 <ul className="menu p-2">
-                  <li>
-                    <NavLink to={"/myArtifacts"}>My_Artifacts</NavLink>
+                  <li className="pointer-events-none">
+                    {/* <NavLink to={"/myArtifacts"}>My_Artifacts</NavLink> */}
+                    <p className="select-none">{user.displayName}</p>
                   </li>
                   <li>
-                    <NavLink to={"/likedArtifacts"}>Liked_Artifacts</NavLink>
+                    <NavLink to={"/dashboard"}>Dashboard</NavLink>
                   </li>
                   <li>
                     <button
