@@ -33,7 +33,7 @@ const ProductDetailsSection = ({ product, onUpvote, onReport, user }) => {
             <button
               onClick={() => onUpvote(product._id)}
               disabled={user?.email === product.owner.email}
-              className={`mt-4  rounded btn-xs ${
+              className={`rounded-lg btn-sm ${
                 user?.email === product.owner.email
                   ? "bg-gray-300 cursor-not-allowed"
                   : "bg-accent text-white"
@@ -44,7 +44,7 @@ const ProductDetailsSection = ({ product, onUpvote, onReport, user }) => {
               </span>
             </button>
 
-            <button onClick={onReport} className="btn btn-warning">
+            <button onClick={onReport} className="btn btn-sm btn-warning">
               Report
             </button>
           </div>
