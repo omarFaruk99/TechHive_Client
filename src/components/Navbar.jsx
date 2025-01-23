@@ -136,7 +136,7 @@ const Navbar = () => {
 
             {/* Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 bg-gray-700  text-yellow-400 rounded shadow-lg z-10">
+              <div className="absolute right-0 mt-2 bg-gray-700  text-accent rounded shadow-lg z-10">
                 <ul className="menu p-2">
                   <li className="pointer-events-none">
                     {/* <NavLink to={"/myArtifacts"}>My_Artifacts</NavLink> */}
@@ -148,7 +148,7 @@ const Navbar = () => {
                   <li>
                     <button
                       onClick={signOutUser}
-                      className="mx-auto bg-slate-800 dark:text-yellow-400 text-sm mt-2 py-1 px-3"
+                      className="mx-auto bg-slate-800 dark:text-accent text-sm mt-2 py-1 px-3"
                     >
                       Sign Out
                     </button>
