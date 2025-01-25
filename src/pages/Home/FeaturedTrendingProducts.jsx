@@ -23,9 +23,9 @@ const FeaturedTrendingProducts = () => {
     );
     setFeaturedProducts(sortedProducts.slice(0, 4));
 
-    // sort products by upvotes (highest first) and get the first 6 trending products
-    const trendingSortedProducts = products.sort(
-      (a, b) => b.upvotes - a.upvotes
+    // Sort products by upvotes (highest first) and get the first 6 trending products
+    const trendingSortedProducts = [...products].sort(
+      (a, b) => (b.upvotes || 0) - (a.upvotes || 0)
     );
     setTrendingProducts(trendingSortedProducts.slice(0, 6));
   }, [products]);

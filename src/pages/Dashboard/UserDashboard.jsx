@@ -17,12 +17,16 @@ const UserDashboard = () => {
           <li>
             <NavLink to="myproduct">My Products</NavLink>
           </li>
+          {/* border/divider */}
+          <div>
+            <div className="border border-zinc-200 my-5"></div>
+          </div>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
         </ul>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 bg-zinc-200">
         <Outlet></Outlet>
       </div>
     </div>

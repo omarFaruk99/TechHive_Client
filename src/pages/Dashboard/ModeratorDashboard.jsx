@@ -14,6 +14,11 @@ const ModeratorDashboard = () => {
           <li>
             <NavLink to="reportedContent">Reported Content</NavLink>
           </li>
+          {/* border/divider */}
+          <div>
+            <div className="border border-zinc-200 my-5"></div>
+          </div>
+          <li></li>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>

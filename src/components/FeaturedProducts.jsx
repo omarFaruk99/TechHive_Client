@@ -35,6 +35,7 @@ const FeaturedProducts = ({ products, handleUpvote, user }) => {
                   </span>
                 ))}
               </div>
+              {/* upvote button */}
               <button
                 onClick={() => handleUpvote(product._id)}
                 disabled={user?.email === product.owner.email}

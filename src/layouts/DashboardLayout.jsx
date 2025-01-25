@@ -4,14 +4,17 @@ import UserDashboard from "../pages/Dashboard/UserDashboard";
 
 const DashboardLayout = () => {
   //TODO
-  const role = "admin";
-  return (
-    <div>
-      {/* <UserDashboard></UserDashboard> */}
-      {/* <ModeratorDashboard></ModeratorDashboard> */}
-      <AdminDashboard></AdminDashboard>
-    </div>
-  );
+  const role = "user";
+
+  if (role === "user") {
+    return <UserDashboard></UserDashboard>;
+  } else if (role === "admin") {
+    return <AdminDashboard></AdminDashboard>;
+  } else if (role === "moderator") {
+    return <ModeratorDashboard></ModeratorDashboard>;
+  } else {
+    return <div>Unauthorized Access</div>;
+  }
 };
 
 export default DashboardLayout;
