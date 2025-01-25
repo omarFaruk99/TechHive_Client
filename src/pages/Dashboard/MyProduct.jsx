@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const MyProduct = () => {
   const axiosPublic = useAxiosPublic();
@@ -57,49 +57,89 @@ const MyProduct = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto mt-5">
-      <h2 className="flex justify-center mb-4 text-3xl font-semibold">
-        Total Products:{userProducts.length}{" "}
+    <div className="w-11/12 mx-auto mt-8">
+      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        My Products ({userProducts.length})
       </h2>
-      {/* table */}
-      <div className="overflow-x-auto">
-        <table className="table table-zebra">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>ProductName</th>
-              <th>#ofVotes</th>
-              <th>Status</th>
-              <th>Update</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userProducts.map((userProduct, index) => (
-              <tr key={userProduct._id}>
-                <th>{index + 1}</th>
-                <td>{userProduct.productName}</td>
-                <td>{userProduct.upvotes}</td>
-                <td>
-                  <p>Pending</p>
-                </td>
-                <td>
-                  {/* update userProduct button */}
-                  <button onClick={() => handleUpdateProduct(userProduct)}>
-                    <GrUpdate color="blue" />
-                  </button>
-                </td>
-                <td>
-                  {/* delete userProduct button */}
-                  <button onClick={() => handleDeleteProduct(userProduct)}>
-                    <MdDelete size={25} color="red" />
-                  </button>
-                </td>
+
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full table-auto">
+            <thead className="bg-gradient-to-r from-gray-700 to-accentDark">
+              <tr>
+                <th className="px-6 py-4 text-white font-semibold text-left">
+                  #
+                </th>
+                <th className="px-6 py-4 text-white font-semibold text-left">
+                  Product Name
+                </th>
+                <th className="px-6 py-4 text-white font-semibold text-center">
+                  Votes
+                </th>
+                <th className="px-6 py-4 text-white font-semibold text-center">
+                  Status
+                </th>
+                <th className="px-6 py-4 text-white font-semibold text-center">
+                  Update
+                </th>
+                <th className="px-6 py-4 text-white font-semibold text-center">
+                  Delete
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {userProducts.map((userProduct, index) => (
+                <tr
+                  key={userProduct._id}
+                  className="hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <td className="px-6 py-4 text-gray-800 font-medium">
+                    {index + 1}
+                  </td>
+                  <td className="px-6 font-medium py-4 text-gray-800">
+                    {userProduct.productName}
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">
+                      {userProduct.upvotes}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <span
+                      className={`px-3 py-1 rounded-full font-medium ${
+                        userProduct.status === "accepted"
+                          ? "bg-green-100 text-green-800"
+                          : userProduct.status === "rejected"
+                          ? "bg-red-100 text-red-800"
+                          : "bg-yellow-100 text-yellow-800"
+                      }`}
+                    >
+                      {userProduct.status || "pending"}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <button
+                      onClick={() => handleUpdateProduct(userProduct)}
+                      className="p-2 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors"
+                      title="Update"
+                    >
+                      <GrUpdate className="text-blue-600" size={18} />
+                    </button>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <button
+                      onClick={() => handleDeleteProduct(userProduct)}
+                      className="p-2 bg-red-100 rounded-full hover:bg-red-200 transition-colors"
+                      title="Delete"
+                    >
+                      <MdDelete className="text-red-600" size={18} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

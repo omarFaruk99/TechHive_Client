@@ -10,10 +10,10 @@ const UpdateProduct = () => {
   const [tags, setTags] = useState([]);
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      productName: product.productName,
-      description: product.description,
-      link: product.link,
-    }
+      productName: product?.productName || "",
+      description: product?.description || "",
+      externalLink: product?.externalLink || "", // Changed from link to externalLink
+    },
   });
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
@@ -21,9 +21,9 @@ const UpdateProduct = () => {
   // Initialize tags from product data
   useEffect(() => {
     if (product.tags) {
-      const formattedTags = product.tags.map(tag => ({
+      const formattedTags = product.tags.map((tag) => ({
         id: tag,
-        text: tag
+        text: tag,
       }));
       setTags(formattedTags);
     }
@@ -41,17 +41,21 @@ const UpdateProduct = () => {
     try {
       const updatedData = {
         ...data,
-        tags: tags.map(tag => tag.text)  // Convert tags to the same format as AddProduct
+        tags: tags.map((tag) => tag.text), // Convert tags to the same format as AddProduct
+        status: product.status, // Preserve existing status
       };
 
-      const res = await axiosSecure.patch(`/products/${product._id}`, updatedData);
+      const res = await axiosSecure.patch(
+        `/products/${product._id}`,
+        updatedData
+      );
       if (res.data.modifiedCount > 0) {
         Swal.fire({
           title: "Success!",
           text: "Product Updated Successfully",
           icon: "success",
         });
-        navigate('/dashboard/myProduct');
+        navigate("/dashboard/myProduct");
       }
     } catch (error) {
       console.error(error);
@@ -60,7 +64,9 @@ const UpdateProduct = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-8">
-      <h2 className="text-3xl font-semibold text-center mb-8">Update Product</h2>
+      <h2 className="text-3xl font-semibold text-center mb-8">
+        Update Product
+      </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <label className="label">
@@ -102,7 +108,7 @@ const UpdateProduct = () => {
           </label>
           <input
             type="text"
-            {...register("link")}
+            {...register("externalLink")} // Changed from link to externalLink
             className="input input-bordered w-full"
           />
         </div>
