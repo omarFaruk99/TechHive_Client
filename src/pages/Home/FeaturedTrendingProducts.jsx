@@ -18,7 +18,7 @@ const FeaturedTrendingProducts = () => {
 
   useEffect(() => {
     // Sort products by timestamp (latest first) and get the first 4 featured products
-    const sortedProducts = products.sort(
+    const sortedProducts = [...products].sort(
       (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
     );
     setFeaturedProducts(sortedProducts.slice(0, 4));
