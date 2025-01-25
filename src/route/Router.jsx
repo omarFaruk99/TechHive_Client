@@ -14,6 +14,7 @@ import ReportedContent from "../pages/Dashboard/ReportedContent";
 import StatisticsPage from "../pages/Dashboard/StatisticsPage";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import ManageCoupons from "../pages/Dashboard/ManageCoupons";
+import UpdateProduct from "../pages/Dashboard/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,17 @@ const router = createBrowserRouter([
       {
         path: "manageUsers",
         element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "updateProduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: async ({ params }) => {
+          const response = await fetch(
+            `http://localhost:5000/products/${params.id}`
+          );
+          const data = await response.json();
+          return data;
+        },
       },
       {
         path: "manageCoupons",
