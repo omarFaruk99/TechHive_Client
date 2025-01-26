@@ -24,7 +24,7 @@ const ModeratorDashboard = () => {
           </li>
         </ul>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 bg-zinc-200">
         <Outlet></Outlet>
       </div>
     </div>

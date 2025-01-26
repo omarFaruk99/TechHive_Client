@@ -4,7 +4,7 @@ import UserDashboard from "../pages/Dashboard/UserDashboard";
 
 const DashboardLayout = () => {
   //TODO
-  const role = "user";
+  const role = "moderator";
 
   if (role === "user") {
     return <UserDashboard></UserDashboard>;
