@@ -60,7 +60,7 @@ const ProductRevieQueue = () => {
   }
 
   return (
-    <div className="w-11/12 mx-auto mt-8">
+    <div className="mt-8">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <h2 className="text-3xl font-bold mb-6 p-6 text-gray-800">
           Product Review Queue<span className="text-accent">({products.length})</span>

@@ -52,7 +52,7 @@ const AddProduct = () => {
             email: user?.email,
           },
           tags: tags.map((tag) => tag.text),
-          timestamp: new Date(),
+          // timestamp: new Date(),
         };
 
         const productRes = await axiosSecure.post("/products", productData);
