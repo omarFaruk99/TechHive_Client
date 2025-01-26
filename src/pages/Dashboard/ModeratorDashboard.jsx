@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 const ModeratorDashboard = () => {
   return (
     <div className="flex">
-      <div className="w-52 text-white bg-gray-700 p-3 min-h-screen ">
+      <div className="w-60 text-white bg-gray-700 p-3 min-h-screen ">
         <h2 className="text-accentDark text-lg font-semibold mb-5">
           ModeratorDashboard
         </h2>
