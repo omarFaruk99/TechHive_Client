@@ -50,14 +50,20 @@ const ProductRevieQueue = () => {
   };
 
   if (!products?.length) {
-    return <div>No products found</div>;
+    return (
+      <div className="w-11/12 mx-auto mt-8">
+        <div className="bg-white shadow-lg rounded-lg p-8 text-center">
+          <p className="text-gray-500 text-lg">No products found in review queue</p>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="w-11/12 mx-auto mt-8">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <h2 className="text-3xl font-bold mb-6 p-6 text-gray-800">
-          Product Review Queue
+          Product Review Queue<span className="text-accent">({products.length})</span>
         </h2>
         <div className="overflow-x-auto">
           <table className="min-w-full table-auto">

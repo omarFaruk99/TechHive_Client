@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <DashboardLayout></DashboardLayout>,
     children: [
+      {
+        index: true,
+        element: <Navigate to="productRevieQueue" replace></Navigate>,
+      },
       {
         path: "myprofile",
         element: <MyProfile></MyProfile>,
