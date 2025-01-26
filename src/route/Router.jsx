@@ -49,8 +49,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="productRevieQueue" replace></Navigate>,
+        element: <Navigate to="myproduct" replace></Navigate>, //default admin route
       },
+      // user Routes
       {
         path: "myprofile",
         element: <MyProfile></MyProfile>,
@@ -63,6 +64,7 @@ const router = createBrowserRouter([
         path: "myproduct",
         element: <MyProduct></MyProduct>,
       },
+      // Moderator routes
       {
         path: "productRevieQueue",
         element: <ProductRevieQueue></ProductRevieQueue>,
@@ -71,6 +73,7 @@ const router = createBrowserRouter([
         path: "reportedContent",
         element: <ReportedContent></ReportedContent>,
       },
+      // Admin routes
       {
         path: "statisticsPage",
         element: <StatisticsPage></StatisticsPage>,
@@ -78,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: "manageUsers",
         element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "manageCoupons",
+        element: <ManageCoupons></ManageCoupons>,
       },
       {
         path: "updateProduct/:id",
@@ -89,10 +96,6 @@ const router = createBrowserRouter([
           const data = await response.json();
           return data;
         },
-      },
-      {
-        path: "manageCoupons",
-        element: <ManageCoupons></ManageCoupons>,
       },
     ],
   },
