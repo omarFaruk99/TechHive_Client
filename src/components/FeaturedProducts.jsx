@@ -52,6 +52,11 @@ const FeaturedProducts = ({ products, handleUpvote, user }) => {
           </div>
         </div>
       ))}
+      {products.length === 0 && (
+        <div className="col-span-full text-center text-gray-400">
+          No featured products available
+        </div>
+      )}
     </>
   );
 };

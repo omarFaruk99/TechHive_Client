@@ -18,9 +18,9 @@ const FeaturedTrendingProducts = () => {
 
   useEffect(() => {
     // Sort products by timestamp (latest first) and get the first 4 featured products
-    const sortedProducts = [...products].sort(
-      (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
-    );
+    const sortedProducts = [...products]
+      .filter((product) => product.featured === true)
+      .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     setFeaturedProducts(sortedProducts.slice(0, 4));
 
     // Sort products by upvotes (highest first) and get the first 6 trending products
@@ -62,7 +62,9 @@ const FeaturedTrendingProducts = () => {
               Featured Products
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-accent"></span>
             </h2>
-            <p className="text-gray-400 mt-6">Discover our latest tech innovations</p>
+            <p className="text-gray-400 mt-6">
+              Discover our latest tech innovations
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             <FeaturedProducts
@@ -80,7 +82,9 @@ const FeaturedTrendingProducts = () => {
               Trending Products
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-accent"></span>
             </h2>
-            <p className="text-gray-400 mt-6">Most popular among our community</p>
+            <p className="text-gray-400 mt-6">
+              Most popular among our community
+            </p>
           </div>
           <TrendingProducts
             products={trendingProducts}

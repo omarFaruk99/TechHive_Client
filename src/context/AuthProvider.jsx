@@ -1,3 +1,5 @@
+// authProvider.jsx
+
 import { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
