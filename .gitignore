@@ -13,6 +13,7 @@ dist-ssr
 *.local
 data.json
 Test.jsx
+Test2.jsx
 
 # Editor directories and files
 .vscode/*

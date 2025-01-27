@@ -1,3 +1,4 @@
+//Router.jsx
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
@@ -47,10 +48,10 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <DashboardLayout></DashboardLayout>,
     children: [
-      {
-        index: true,
-        element: <Navigate to="myproduct" replace></Navigate>, //default admin route
-      },
+      // {
+      //   index: true,
+      //   element: <Navigate to="myproduct" replace></Navigate>, //default  route
+      // },
       // user Routes
       {
         path: "myprofile",

@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import useAuth from "../hooks/useAuth";
 import { useEffect, useState } from "react";
-// import { AuthContext } from "../Provider/AuthProvider";
-// import { useContext, useEffect, useState } from "react";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
-
+  const axiosSecure = useAxiosSecure();
+  const [role, setRole] = useState(null);
   // State to manage the theme
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") || "light" // Default to light theme
@@ -31,6 +31,22 @@ const Navbar = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
+
+  // Fetch user role
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      try {
+        if (user?.email) {
+          const response = await axiosSecure.get(`/users/role/${user.email}`);
+          setRole(response.data.role);
+        }
+      } catch (error) {
+        console.error("Error fetching user role:", error);
+      }
+    };
+
+    fetchUserRole();
+  }, [user, axiosSecure]);
 
   const navbarLink = (
     <>
@@ -139,12 +155,23 @@ const Navbar = () => {
               <div className="absolute right-0 mt-2 bg-gray-700  text-accent rounded shadow-lg z-10">
                 <ul className="menu p-2">
                   <li className="pointer-events-none">
-                    {/* <NavLink to={"/myArtifacts"}>My_Artifacts</NavLink> */}
                     <p className="select-none">{user.displayName}</p>
                   </li>
-                  <li>
-                    <NavLink to={"/dashboard"}>Dashboard</NavLink>
-                  </li>
+                  {role && (
+                    <li>
+                      <NavLink
+                        to={
+                          role === "admin"
+                            ? "/dashboard/statisticsPage"
+                            : role === "moderator"
+                            ? "/dashboard/productRevieQueue"
+                            : "/dashboard/myproduct"
+                        }
+                      >
+                        Dashboard
+                      </NavLink>
+                    </li>
+                  )}
                   <li>
                     <button
                       onClick={signOutUser}
