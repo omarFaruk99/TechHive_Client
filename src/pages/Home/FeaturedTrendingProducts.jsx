@@ -53,17 +53,42 @@ const FeaturedTrendingProducts = () => {
   };
 
   return (
-    <div className="w-11/12 mb-2 mt-3 mx-auto">
-      <FeaturedProducts
-        products={featuredProducts}
-        handleUpvote={handleUpvote}
-        user={user}
-      />
-      <TrendingProducts
-        products={trendingProducts}
-        handleUpvote={handleUpvote}
-        user={user}
-      />
+    <div className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen">
+      <div className="container mx-auto px-4">
+        {/* Featured Products Section */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-3 relative inline-block">
+              Featured Products
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-accent"></span>
+            </h2>
+            <p className="text-gray-400 mt-6">Discover our latest tech innovations</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <FeaturedProducts
+              products={featuredProducts}
+              handleUpvote={handleUpvote}
+              user={user}
+            />
+          </div>
+        </div>
+
+        {/* Trending Products Section */}
+        <div className="relative">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-3 relative inline-block">
+              Trending Products
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-accent"></span>
+            </h2>
+            <p className="text-gray-400 mt-6">Most popular among our community</p>
+          </div>
+          <TrendingProducts
+            products={trendingProducts}
+            handleUpvote={handleUpvote}
+            user={user}
+          />
+        </div>
+      </div>
     </div>
   );
 };

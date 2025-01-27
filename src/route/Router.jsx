@@ -16,6 +16,9 @@ import StatisticsPage from "../pages/Dashboard/StatisticsPage";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import ManageCoupons from "../pages/Dashboard/ManageCoupons";
 import UpdateProduct from "../pages/Dashboard/UpdateProduct";
+import Contact from "../pages/Contact";
+import Faq from "../pages/Faq";
+import Testimonials from "../pages/Testimonials";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Products></Products>,
+      },
+      {
+        path: "contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "testimonials",
+        element: <Testimonials></Testimonials>,
+      },
+      {
+        path: "faq",
+        element: <Faq></Faq>,
       },
       {
         path: "product/:id",

@@ -7,7 +7,7 @@ import bImag5 from "../../assets/home/slide6.jpg";
 
 const HomeCarousel = () => {
   return (
-    <div className="w-11/12 mb-2 mt-3 mx-auto bg-gray-50">
+    <div className="w-11/12 mb-2 mt-3 mx-auto">
       <div className="h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
         <Carousel
           autoPlay

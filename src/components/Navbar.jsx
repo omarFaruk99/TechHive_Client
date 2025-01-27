@@ -50,19 +50,48 @@ const Navbar = () => {
 
   const navbarLink = (
     <>
-      <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/products"}>Products</NavLink>
-      <NavLink to={"/contact"}>Contact Us</NavLink>
-      <NavLink to={"/faq"}>FAQ</NavLink>
-      <NavLink to={"/testimonials"}>Testimonials</NavLink>
+      <NavLink
+        to={"/"}
+        className="hover:text-accent transition-colors duration-300"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to={"/products"}
+        className="hover:text-accent transition-colors duration-300"
+      >
+        Products
+      </NavLink>
+      <NavLink
+        to={"/contact"}
+        className="hover:text-accent transition-colors duration-300"
+      >
+        Contact Us
+      </NavLink>
+      <NavLink
+        to={"/faq"}
+        className="hover:text-accent transition-colors duration-300"
+      >
+        FAQ
+      </NavLink>
+      <NavLink
+        to={"/testimonials"}
+        className="hover:text-accent transition-colors duration-300"
+      >
+        Testimonials
+      </NavLink>
     </>
   );
 
   return (
-    <div className="navbar  bg-gray-800 text-white shadow-md">
+    <div className="navbar backdrop-blur-md bg-gradient-to-r from-gray-900/95 to-gray-800/95 text-white shadow-lg sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden hover:bg-gray-700/50"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -78,23 +107,24 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-gray-700  text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <div className="flex flex-col gap-2">{navbarLink}</div>
+          <ul className="menu menu-sm dropdown-content bg-gray-800/95 backdrop-blur-md text-white rounded-xl z-[1] mt-3 w-52 p-3 shadow-lg border border-gray-700/50">
+            <div className="flex flex-col gap-3">{navbarLink}</div>
           </ul>
         </div>
-        <a className="btn btn-ghost text-accent text-2xl font-bold">TechHive</a>
+        <a className="btn btn-ghost text-2xl font-bold">
+          <span className="text-accent">Tech</span>
+          <span className="bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">
+            Hive
+          </span>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <div className="flex gap-4 font-normal">{navbarLink}</div>
+          <div className="flex gap-6 font-medium text-sm">{navbarLink}</div>
         </ul>
       </div>
-      <div className="navbar-end flex items-center">
-        {/* Theme Toggle */}
-        <label className="swap swap-rotate mr-3">
+      <div className="navbar-end flex items-center gap-2">
+        <label className="swap swap-rotate mr-3 hover:text-accent transition-colors">
           <input
             type="checkbox"
             onChange={toggleTheme}
@@ -116,46 +146,44 @@ const Navbar = () => {
           </svg>
         </label>
 
-        {/* User Authentication */}
         {!user ? (
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <NavLink
               to={"/login"}
-              className="btn btn-sm auth-btn text-black bg-gradient-to-l bg-accent border-none hover:bg-accentDark text-sm"
+              className="btn btn-sm bg-gradient-to-r from-accent to-blue-500 text-white border-none hover:opacity-90 transition-all duration-300"
             >
               Login
             </NavLink>
             <NavLink
               to={"/register"}
-              className="btn btn-sm auth-btn text-black  bg-gradient-to-r  bg-accent hover:bg-accentDark border-none text-sm"
+              className="btn btn-sm bg-gray-700 hover:bg-gray-600 text-white border-none transition-all duration-300"
             >
               Register
             </NavLink>
           </div>
         ) : (
           <div className="relative">
-            {/* User Profile */}
             <div
               onClick={toggleDropdown}
               className="cursor-pointer flex items-center relative group"
             >
               <img
-                className="w-8 h-8 sm:w-11 sm:h-11 rounded-full"
+                className="w-10 h-10 rounded-full border-2 border-accent/50 hover:border-accent transition-all duration-300"
                 src={user.photoURL}
                 alt="User Profile"
               />
-              {/* Show username on hover */}
-              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 translate-y-[-5px] px-3 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                 {user.displayName}
               </span>
             </div>
 
-            {/* Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 bg-gray-700  text-accent rounded shadow-lg z-10">
+              <div className="absolute right-0 mt-2 bg-gray-800/95 backdrop-blur-md border border-gray-700/50 text-white rounded-xl shadow-xl z-10 w-48 overflow-hidden">
                 <ul className="menu p-2">
                   <li className="pointer-events-none">
-                    <p className="select-none">{user.displayName}</p>
+                    <p className="text-accent font-medium truncate">
+                      {user.displayName}
+                    </p>
                   </li>
                   {role && (
                     <li>
@@ -167,6 +195,7 @@ const Navbar = () => {
                             ? "/dashboard/productRevieQueue"
                             : "/dashboard/myproduct"
                         }
+                        className="hover:bg-gray-700/50 transition-colors"
                       >
                         Dashboard
                       </NavLink>
@@ -175,7 +204,7 @@ const Navbar = () => {
                   <li>
                     <button
                       onClick={signOutUser}
-                      className="mx-auto bg-slate-800 dark:text-accent text-sm mt-2 py-1 px-3"
+                      className="w-full text-left hover:bg-gray-700/50 transition-colors text-red-400 hover:text-red-300"
                     >
                       Sign Out
                     </button>

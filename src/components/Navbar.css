@@ -1,8 +1,21 @@
 /* for navar action page */
 .active {
   color: #60A5FA;
+  position: relative;
 }
 
-.auth-btn.active{
-  color: black !important;
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #60A5FA, #3B82F6);
+  border-radius: 2px;
+}
+
+.auth-btn.active {
+  color: white !important;
+  background: linear-gradient(to right, #60A5FA, #3B82F6);
 }
