@@ -9,7 +9,7 @@ const MyProfile = () => {
 
   const handleSubscribe = () => {
     // Redirect to payment page or open a modal
-    navigate("/payment"); // Example: Redirect to payment page
+    // navigate("/payment"); // Example: Redirect to payment page
   };
 
   return (

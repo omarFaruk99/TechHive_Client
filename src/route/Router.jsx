@@ -19,6 +19,8 @@ import UpdateProduct from "../pages/Dashboard/UpdateProduct";
 import Contact from "../pages/Contact";
 import Faq from "../pages/Faq";
 import Testimonials from "../pages/Testimonials";
+import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -55,7 +57,11 @@ const router = createBrowserRouter([
       },
       {
         path: "product/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -114,6 +120,10 @@ const router = createBrowserRouter([
         },
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
