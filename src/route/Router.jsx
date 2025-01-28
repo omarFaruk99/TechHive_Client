@@ -107,7 +107,7 @@ const router = createBrowserRouter([
         element: <UpdateProduct></UpdateProduct>,
         loader: async ({ params }) => {
           const response = await fetch(
-            `http://localhost:5000/products/${params.id}`
+            `https://tech-hive-server-mu.vercel.app/products/${params.id}`
           );
           const data = await response.json();
           return data;

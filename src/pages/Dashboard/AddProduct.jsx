@@ -63,7 +63,7 @@ const AddProduct = () => {
           throw new Error("Failed to add product");
         }
       } catch (error) {
-        console.error("Error:", error);
+        // console.error("Error:", error);
         toast.error("Failed to add product");
       }
     },

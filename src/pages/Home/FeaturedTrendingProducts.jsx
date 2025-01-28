@@ -47,7 +47,7 @@ const FeaturedTrendingProducts = () => {
           position: "top-center",
         });
       } else {
-        console.error("Error upvoting product:", error.response.data.message);
+        // console.error("Error upvoting product:", error.response.data.message);
       }
     }
   };

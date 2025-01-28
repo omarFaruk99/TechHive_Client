@@ -41,7 +41,7 @@ const StatisticsPage = () => {
           totalUsers: usersCount,
         });
       } catch (error) {
-        console.error("Error fetching statistics:", error);
+        // console.error("Error fetching statistics:", error);
       } finally {
         setLoading(false);
       }

@@ -58,7 +58,7 @@ const UpdateProduct = () => {
         navigate("/dashboard/myProduct");
       }
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
 

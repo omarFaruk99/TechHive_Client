@@ -17,7 +17,7 @@ const MyProduct = () => {
     queryKey: ["userProducts"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/products?email=${user.email}`);
-      console.log(`user data${user.email}=====>`, res);
+      // console.log(`user data${user.email}=====>`, res);
       return res.data;
     },
   });
@@ -50,7 +50,7 @@ const MyProduct = () => {
             }
           })
           .catch((error) => {
-            console.error("Error deleting product: ", error);
+            // console.error("Error deleting product: ", error);
           });
       }
     });

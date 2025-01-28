@@ -7,6 +7,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard";
 import ModeratorDashboard from "../pages/Dashboard/ModeratorDashboard";
 import UserDashboard from "../pages/Dashboard/UserDashboard";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const DashboardLayout = () => {
   const { user, loading } = useAuth();
@@ -22,7 +23,7 @@ const DashboardLayout = () => {
           setRole(response.data.role);
         }
       } catch (error) {
-        console.error("Error fetching user role:", error);
+        // console.error("Error fetching user role:", error);
       } finally {
         setRoleLoading(false);
       }
@@ -33,7 +34,12 @@ const DashboardLayout = () => {
 
   // Show loading state while checking authentication and role
   if (loading || roleLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        {" "}
+        <LoadingSpinner></LoadingSpinner>{" "}
+      </div>
+    );
   }
 
   // Redirect to login if not authenticated

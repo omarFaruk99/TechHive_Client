@@ -41,7 +41,7 @@ const Navbar = () => {
           setRole(response.data.role);
         }
       } catch (error) {
-        console.error("Error fetching user role:", error);
+        // console.error("Error fetching user role:", error);
       }
     };
 

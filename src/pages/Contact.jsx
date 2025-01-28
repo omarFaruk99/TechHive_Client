@@ -22,16 +22,16 @@ const Contact = () => {
         {/* Contact Info Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {[
-            { icon: <FaPhone />, title: "Phone", content: "+1 (555) 123-4567" },
+            { icon: <FaPhone />, title: "Phone", content: "+880  177 263 977 88" },
             {
               icon: <FaEnvelope />,
               title: "Email",
-              content: "contact@techhive.com",
+              content: "omarfaruk@gmail.com",
             },
             {
               icon: <FaMapMarkerAlt />,
               title: "Location",
-              content: "123 Tech Street, NY 10001",
+              content: "123 Tech Street, Dhaka 10001",
             },
           ].map((item, index) => (
             <div key={index} className="group">

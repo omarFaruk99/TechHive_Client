@@ -13,10 +13,10 @@ const ReportedContent = () => {
     const fetchReportedProducts = async () => {
       try {
         const response = await axiosSecure.get("/reported-products");
-        console.log("Received products:", response.data); // For debugging
+        // console.log("Received products:", response.data); // For debugging
         setReportedProducts(response.data);
       } catch (error) {
-        console.error("Failed to fetch reported products", error);
+        // console.error("Failed to fetch reported products", error);
         Swal.fire("Error", "Failed to fetch reported products", "error");
       } finally {
         setLoading(false);
@@ -46,7 +46,7 @@ const ReportedContent = () => {
         Swal.fire("Deleted!", "Product has been deleted.", "success");
       }
     } catch (error) {
-      console.error("Error deleting product:", error);
+      // console.error("Error deleting product:", error);
       Swal.fire("Error", "Failed to delete product", "error");
     }
   };
