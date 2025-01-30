@@ -21,6 +21,7 @@ import Faq from "../pages/Faq";
 import Testimonials from "../pages/Testimonials";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../pages/payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
         path: "myproduct",
         element: <MyProduct></MyProduct>,
       },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
       // Moderator routes
       {
         path: "productRevieQueue",
@@ -113,7 +118,7 @@ const router = createBrowserRouter([
         element: <UpdateProduct></UpdateProduct>,
         loader: async ({ params }) => {
           const response = await fetch(
-            `https://tech-hive-server-mu.vercel.app/products/${params.id}`
+            `http://localhost:5000/products/${params.id}`
           );
           const data = await response.json();
           return data;

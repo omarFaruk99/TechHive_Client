@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyProfile = () => {
   const { user } = useAuth();
   const [isSubscribed, setIsSubscribed] = useState(false); // Replace with actual subscription status
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
+
+  useEffect(() => {
+    const fetchSubscriptionStatus = async () => {
+      try {
+        const response = await axiosSecure.get(
+          `/users/subscription/${user.email}`
+        );
+        setIsSubscribed(response.data.isSubscribed);
+      } catch (error) {
+        console.log("Error fetching subscription status:", error);
+      }
+    };
+    fetchSubscriptionStatus();
+  }, [user.email, axiosSecure]);
 
   const handleSubscribe = () => {
     // Redirect to payment page or open a modal
-    // navigate("/payment"); // Example: Redirect to payment page
+    navigate("/dashboard/payment"); // Example: Redirect to payment page
   };
 
   return (
@@ -35,7 +51,9 @@ const MyProfile = () => {
           </button>
         ) : (
           <div className="mt-4">
-            <p className="text-green-600 font-semibold">Status: Verified</p>
+            <p>
+              <span className="badge badge-info">Status: Verified</span>
+            </p>
           </div>
         )}
       </div>
